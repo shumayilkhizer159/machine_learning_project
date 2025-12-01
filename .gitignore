@@ -1,0 +1,28 @@
+# Data (Too large for GitHub)
+data/
+/kaggle/input/
+
+# Models (Too large or binary)
+models/
+*.pkl
+*.json
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Jupyter Checkpoints
+.ipynb_checkpoints/
+
+# IDE/System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+debug_*.txt
+inspection_*.txt
+prepare_assets.py
+keggle downloaded model/
