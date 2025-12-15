@@ -194,7 +194,7 @@
 *   **1. Graph Neural Networks (GNN):** Model not just one player, but the *interaction* between players (blockers vs. defenders).
 *   **2. Better Target Encoding:** Predict acceleration vectors instead of raw $(x,y)$ to physically bound the output.
 *   **3. Hyperparameter Tuning:** Extensive RayTune/Optuna search to optimize the XGBoost trees.
-*   **Visual:** [Image: A graph network diagram connecting players]
+*   **Visual:** `Generated_Images/slide_15_visual.png` (AI-Generated Graph Neural Network visualization)
 
 > **Speaker Notes:**
 > "If we had more time, our next step would be Graph Neural Networks. Football is a team sport; players interact. A GNN could learn that if a blocker moves left, the running back will likely follow. We also want to refine our target encoding to predict acceleration vectors, which would mathematically prevent the model from predicting physically impossible movements."
