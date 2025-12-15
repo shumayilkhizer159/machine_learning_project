@@ -112,7 +112,7 @@
         *   Use Physics.
     *   ELSE:
         *   Use Weighted Average (`0.6 * ML + 0.4 * Physics`).
-*   **Visual:** [Logic Diagram: Decision tree showing the fallback mechanism]
+*   **Visual:** `Generated_Images/slide_9_visual.png` (AI-Generated Safety Net Logic Diagram)
 
 > **Speaker Notes:**
 > "This is the most critical part of our system. We call it the 'Safety Net'. If our XGBoost model predicts a player moves 20 yards in 1 second—which is impossible—we automatically discard it and revert to the physics model. This prevents catastrophic errors and ensures our submission is always valid and physically plausible."
