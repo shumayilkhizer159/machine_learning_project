@@ -36,8 +36,5 @@ python src/create_submission_notebook.py
 ```
 This produces `notebooks/inference_notebook.ipynb`.
 
-### 4. Training (Optional)
-If you wish to retrain the models, you must place the competition data in the `data/` directory and run:
-```bash
-python src/model_xgboost.py
-```
+### 4. Training and Execution
+For detailed instructions on how to train models and run the pipeline step-by-step, please see [RUNNING_GUIDE.md](RUNNING_GUIDE.md).
