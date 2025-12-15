@@ -87,7 +87,7 @@
 *   **Formula:** $x_{t+1} = x_t + v_x \cdot \Delta t$
 *   **Role:** The "Anchor". Provides a guaranteed realistic prediction.
 *   **Performance:** RMSE ~1.61 (Surprisingly hard to beat).
-*   **Visual:** [Animation/Diagram: A straight arrow projecting from a player]
+*   **Visual:** `Generated_Images/slide_7_visual.png` (AI-Generated Physics/Kinematics Diagram)
 
 > **Speaker Notes:**
 > "I'll walk you through our modeling strategy. We started with Physics. It's simple: an object in motion stays in motion. We calculate the velocity vector and project it forward. This baseline is incredibly robust. It never predicts impossible movements. In fact, it scored an RMSE of 1.61, which became the benchmark our ML models had to beat."
