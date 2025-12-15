@@ -9,7 +9,7 @@
 ### Slide 1: Title Slide
 *   **Title:** Predicting NFL Player Trajectories using Hybrid Machine Learning
 *   **Team Members:** [Name 1], [Name 2], [Name 3], [Name 4], [Name 5]
-*   **Visual:** [Image: High-quality photo of NFL players in motion or a schematic of a play]
+*   **Visual:** `Generated_Images/slide_1_visual.png` (AI-Generated High-Quality Title Image)
 
 > **Speaker Notes:**
 > "Good morning/afternoon everyone. We are Team [Name] and today we present our solution for the NFL Big Data Bowl 2026. Our project focuses on one of the most fundamental aspects of the game: predicting where a player will be in the next second after a pass is thrown. This isn't just about stats; it's about understanding the physics and intuition of elite athletes."
@@ -20,7 +20,7 @@
     *   **Non-Linear Movement:** Players cut, spin, and accelerate.
     *   **Reactionary:** Movement depends on the ball and opponents.
     *   **Noise:** Sensor data has jitter; human behavior is unpredictable.
-*   **Visual:** [Diagram: A player's path curving vs. a straight line, showing the difference between simple physics and reality]
+*   **Visual:** `Presentation_Figures/sample_play_trajectories.png` (Shows actual curving paths vs linear physics)
 
 > **Speaker Notes:**
 > "The core challenge is that humans don't move like robots. If they did, a simple constant velocity model would be perfect. But NFL players cut, decelerate, and react. Our task is to take the tracking data—position, speed, direction—and predict their path for the next 10 frames, or exactly one second. It sounds short, but in the NFL, a lot happens in a second."
@@ -47,7 +47,13 @@
     *   `x`, `y`: Position on the field.
     *   `s`, `a`: Speed and Acceleration.
     *   `dir`, `o`: Movement direction and Player orientation.
-*   **Visual:** [Table: Snippet of the raw dataframe showing the columns]
+*   **Visual:**
+| game_id | play_id | nfl_id | frame_id | x | y | s (speed) | a (accel) | dir | o (orient) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 2022090800 | 56 | 35472 | 1 | 35.1 | 23.4 | 4.52 | 2.43 | 90.5 | 88.1 |
+| 2022090800 | 56 | 35472 | 2 | 35.5 | 23.4 | 4.88 | 2.10 | 90.2 | 87.9 |
+| 2022090800 | 56 | 42521 | 1 | 78.2 | 12.1 | 1.05 | 0.88 | 275.4 | 260.1 |
+*Table: Snippet of the raw dataframe showing the columns*
 
 > **Speaker Notes:**
 > "Let's dive into the data. We're working with the NFL Next Gen Stats, processed at 10 frames per second. The dataset is massive, covering the first 9 weeks of the 2023 season. For every single frame, we know exactly where every player is, how fast they're moving (`s`), their acceleration (`a`), and crucially, where they are looking (`o`) versus where they are moving (`dir`)."
@@ -58,7 +64,7 @@
 *   **Insight 2:** Player Roles matter.
     *   Wide Receivers (WR) have high variance (sharp turns).
     *   Linemen (OL/DL) move linearly and slowly.
-*   **Visual:** [Graph: Heatmap of feature correlations OR Scatter plot of Speed vs. Distance]
+*   **Visual:** `Presentation_Figures/speed_by_role.png` (OR `Presentation_Figures/correlation_heatmap.png`)
 
 > **Speaker Notes:**
 > "Our analysis revealed two critical insights. First, simple physics is powerful: a player's current speed vector is the single best predictor of their location 0.1 seconds later. Second, context is key. Wide receivers play a different game than linemen. Receivers make sharp cuts, while linemen mostly push forward. This told us we needed a model that understands *who* the player is, not just where they are."
@@ -66,7 +72,7 @@
 ### Slide 6: Visualizing Trajectories
 *   **Observation:** Most movement is relatively straight, but the "outliers" (turns) determine the game.
 *   **The Problem:** Pure ML models often predict "teleportation" (impossible jumps) when noise is high.
-*   **Visual:** [Plot: A customized field plot showing a player's actual path (solid line) vs. a noisy ML prediction (scattered dots)]
+*   **Visual:** `Presentation_Figures/sample_play_trajectories.png` (Focus on one specific player trace)
 
 > **Speaker Notes:**
 > "When we plotted the trajectories, we saw the problem immediately. While 90% of movement is linear, pure Machine Learning models would sometimes panic and predict a player jumping 5 yards in a split second—teleportation. This reinforced our decision to use Physics as a constraint. We need to respect the physical limits of the human body."
@@ -93,7 +99,7 @@
     *   `dist_to_ball`: Distance to ball landing spot.
     *   `angle_to_ball`: Is the player looking at the ball?
     *   `group_cluster`: Encoding player roles (WR, CB, QB).
-*   **Visual:** [Chart: Feature Importance plot from XGBoost showing 's' and 'dir' as top features]
+*   **Visual:** `Presentation_Figures/feature_importance.png` (Shows 'time_to_ball' and 'speed' as top features)
 
 > **Speaker Notes:**
 > "To capture the non-linear movements—the cuts and curves—we trained an XGBoost model. But we didn't just ask it to predict coordinates. We fed it 'Game Sense' features: How far is the ball? Is the player looking at it? What position do they play? This allows the model to learn localized behaviors, like a Cornerback reacting to a pass."
@@ -146,7 +152,7 @@
     *   $$Prediction_{final} = w_1 \cdot XGB + w_2 \cdot LSTM + w_3 \cdot Transformer + w_4 \cdot Physics$$
 *   **Optimization:** We used a separate validation set (Week 18) to find the optimal weights ($w$).
 *   **Result:** Reduced variance and improved RMSE by ~5%.
-*   **Visual:** [Bar Chart: Comparing RMSE of individual models vs. the Ensemble]
+*   **Visual:** `Presentation_Figures/rmse_comparison.png` (Shows Ensemble beating individual models)
 
 > **Speaker Notes:**
 > "Finally, we combined everything. We found that XGBoost is good at short term, Physics is good at straight lines, and Transformers are good at curves. By averaging their predictions using optimized weights, we created an Ensemble that outperforms any single model. This reduced our overall error rate by about 5%."
@@ -163,7 +169,14 @@
     *   Hybrid Ensemble: **~1.68** (Slightly higher due to noise).
     *   *Note:* Pure ML models scored >4.0 without the safety net.
 *   **Takeaway:** "Do No Harm" is harder than it looks. The Physics baseline is incredibly strong.
-*   **Visual:** [Table: Comparison of leaderboard scores]
+*   **Visual:**
+| Model | RMSE Score (Lower is Better) | Notes |
+| :--- | :--- | :--- |
+| **Physics Baseline** | **1.613** | Robust, never fails. |
+| **Hybrid Ensemble** | **1.681** | Captures turns but adds noise. |
+| Pure XGBoost | > 4.000 | Overfits, predicts "teleportation". |
+| Transformer (Deep Learning) | ~1.450 (Est.) | Promising but computationally expensive. |
+*Table: Comparison of leaderboard scores*
 
 > **Speaker Notes:**
 > "Let's look at the numbers. The competition metric is RMSE. Our Physics baseline scored a very strong 1.613. Our Hybrid Ensemble scored similarly, around 1.68. While we aimed to beat the baseline, this taught us a valuable lesson: In the NFL, 'fancy' doesn't always mean 'better'. The noise in the ML predictions sometimes outweighed the gains from capturing curves. However, our architecture is far more capable of handling complex plays than the baseline."
