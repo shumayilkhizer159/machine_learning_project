@@ -26,3 +26,10 @@ debug_*.txt
 inspection_*.txt
 prepare_assets.py
 keggle downloaded model/
+prepare_assets_small.py
+temp_models_archive.zip
+
+# Specific Exclusions
+Presentation Material/other report/
+Presentation Material/Fun_Concepts_Guide.md
+Presentation Material/GitHub_Upload_Guide.md

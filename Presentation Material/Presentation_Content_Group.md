@@ -8,7 +8,7 @@
 
 ### Slide 1: Title Slide
 *   **Title:** Predicting NFL Player Trajectories using Hybrid Machine Learning
-*   **Team Members:** [Name 1], [Name 2], [Name 3], [Name 4], [Name 5]
+*   **Team Members:** Shumayil Khizer,Mustafa Dedhy, Muhammad Farhan, Oumaima Lakhlifa, Shireen Azzam
 *   **Visual:** `Generated_Images/slide_1_visual.png` (AI-Generated High-Quality Title Image)
 
 > **Speaker Notes:**
