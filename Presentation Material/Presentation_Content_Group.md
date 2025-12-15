@@ -141,7 +141,7 @@
     *   Built in PyTorch.
     *   Trained on GPU (RTX 3090 optimized).
     *   Uses Positional Encoding to understand time.
-*   **Visual:** [Diagram: Simplified Transformer block (Attention -> Norm -> Feed Forward)]
+*   **Visual:** `Generated_Images/slide_11_visual.png` (AI-Generated Self-Attention visualization)
 
 > **Speaker Notes:**
 > "We also pushed the envelope by implementing a Transformer model. Using Self-Attention mechanisms, the model can weigh the importance of different past frames. For example, the moment a player plants their foot to cut is more important than the 5 frames of running straight before it. The Transformer learns to pay attention to that specific 'plant' step."
