@@ -129,7 +129,7 @@
     *   **Input:** Sequence of past 10 frames.
     *   **Hidden Layers:** Bidirectional LSTM layers to capture temporal dependencies.
     *   **Output:** Sequence of future 10 frames.
-*   **Visual:** [Diagram: Neural Network architecture showing Sequence Input -> LSTM -> Dense -> Output]
+*   **Visual:** `Generated_Images/slide_10_visual.png` (AI-Generated sequence-to-sequence neural network diagram)
 
 > **Speaker Notes:**
 > "XGBoost is great, but it has no memory. It sees a snapshot, not a movie. To fix this, we implemented Deep Learning models, specifically LSTMs and Transformers. These models take the entire history of the plyer's movement as input. They 'remember' if a player was accelerating 5 frames ago, allowing them to predict momentum shifts much better than a static model."
