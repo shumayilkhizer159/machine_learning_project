@@ -206,7 +206,7 @@
     *   Created a Robust "Safety Net" Architecture.
 *   **Final Thought:** Reliability > Complexity.
 *   **Q&A**
-*   **Visual:** [Image: "Thank You" slide with team contact info]
+*   **Visual:** `Generated_Images/slide_16_visual.png` (AI-Generated Team 9 Thank You slide)
 
 > **Speaker Notes:**
 > "In conclusion, Team 9 has successfully built an end-to-end trajectory prediction system. We've explored the limits of traditional physics and modern deep learning. We learned that while AI is powerful, it needs to be grounded in reality—hence our 'Safety Net' architecture. Thank you for your time, and we are happy to answer any questions."
