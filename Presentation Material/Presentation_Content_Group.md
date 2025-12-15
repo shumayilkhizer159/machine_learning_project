@@ -30,7 +30,7 @@
 *   **Key Innovation:** A "Safety Net" architecture.
     *   We combine **Physics (Kinematics)** with **Machine Learning (XGBoost/Deep Learning)**.
     *   Ensures valid predictions even when the ML gets confused.
-*   **Visual:** [Flowchart: Raw Data -> Physics Model + ML Model -> Ensemble -> Final Prediction]
+*   **Visual:** `Generated_Images/slide_3_visual.png` (AI-Generated Diagram of Hybrid Pipeline)
 
 > **Speaker Notes:**
 > "We didn't just build one model. We built a system. We recognized that while Deep Learning is powerful, it can be unstable. So we designed a 'Hybrid Architecture'. We use physics-based kinematics as a baseline—a safety net—and then use advanced Machine Learning to refine those predictions. This gives us the best of both worlds: reliability and precision."
